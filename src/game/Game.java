@@ -23,14 +23,23 @@ public class Game {
         
         System.out.println("Guess the number from 0 to 5: ");
         Scanner scanner = new Scanner(System.in);
-        int userNum = scanner.nextInt();
+        int attempt = 0;
         
+        do{
+        int userNum = scanner.nextInt();
         if (num == userNum) {
             System.out.println("You've guessed it! Yay! :)");
+            break;
         }else{
-            System.out.println("Wrong number. You've lost. :( Guessed number: "+num);
+            if(attempt<2) {
+                System.out.println("Wrong. try again.");
+            }else{
+                System.out.println("Wrong number. You've lost. :( Guessed number: "+num);
+            }
         }
         
+        attempt++;
+        }while(attempt < 3);
     }
     
 }
